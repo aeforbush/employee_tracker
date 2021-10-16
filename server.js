@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("./config/connection");
+const connection = require("./config/connection");
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 
@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3002;
 
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // once connection is established Employee Manager shows
 openingMessage = () => {
@@ -95,13 +95,47 @@ const promptUser = () => {
 };
 
 // shows all departments
-
 showDepartments = () => {
+  console.log("showing all departments");
+  const sql = `SELECT department.id AS id, department.dept_name AS department FROM department`;
 
-}
+  connection.promise().query(sql, (err, rows) => {
+    if (err) throw err;
+    console.log(rows);
+    promptUser();
+  });
+};
+
+// shows all roles 
+
+
+// shows all employees
+showEmployees = () => {
+  console.log("Showing all roles");
+  const sql = `SELECT employee.id,
+    employee.first_name,
+    employee.last_name,
+    employee_role.title,
+    department.dept_name AS department,
+    employee_role.salary, 
+    CONCAT (manager.first_name, " ", manager.last_name) AS manager
+    FROM employee
+    LEFT JOIN role ON employee.role_id = role_id
+    LEFT JOIN department ON employee_role.department_id = department.id
+    LEFT JOIN employee manager ON employee.manager_id = manager.id`;
+
+  connection.promise().query(sql, (err, rows) => {
+    if (err) throw err;
+    console.log(rows);
+    promptUser;
+  });
+};
+
+
+
 
 // start server after DB connection
-db.connect((err) => {
+connection.connect((err) => {
   if (err) throw err;
   console.log("Database conected.");
   app.listen(PORT, () => {
