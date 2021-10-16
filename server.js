@@ -1,9 +1,13 @@
-// const express = require("express");
+const express = require("express");
 const db = require("./config/connection");
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 
+const app = express();
 const PORT = process.env.PORT || 3002;
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 // once connection is established Employee Manager shows
 openingMessage = () => {
