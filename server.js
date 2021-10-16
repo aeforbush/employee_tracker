@@ -1,5 +1,5 @@
 // const express = require("express");
-const db = require("./db/connection");
+const db = require("./config/connection");
 const inquirer = require("inquirer");
 const cTable = require("console.table");
 
