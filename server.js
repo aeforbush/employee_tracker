@@ -5,10 +5,6 @@ const inquirer = require("inquirer");
 const PORT = process.env.PORT || 3002;
 const app = express();
 
-
-
-
-
 // start server after DB connection
 db.connect((err) => {
   if (err) throw err;
