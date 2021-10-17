@@ -28,7 +28,11 @@ Employee Tracker uses SQL and Node.js to store employee data.  Specifically, the
 ## Video Preview
 Full length video is too large a file to post here but could be provided by request.
 
-https://user-images.githubusercontent.com/87487655/137644718-18348dc7-6ce5-42e6-9c0d-afeda6298684.mov
+
+
+
+https://user-images.githubusercontent.com/87487655/137648890-4971e6a6-9e1a-4a59-9e06-15fed8698186.mov
+
 
 
 ## Deployed Link
