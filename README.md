@@ -26,8 +26,6 @@ Employee Tracker uses SQL and Node.js to store employee data.  Specifically, the
 * Clone the repository to your local machine.  Run `npm install` to install all dependencies.  Additonally, run `node server.js` in your CLI, and open with `http://localhost:3002` or preferred port in browser of choice; preferrably Chrome.  
 
 ## Video Preview
-Full length video is too large a file to post here but could be provided by request.
-
 
 
 
