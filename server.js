@@ -107,11 +107,15 @@ showDepartments = () => {
 };
 
 // shows all roles 
+showRoles = () => {
+    console.log('Showing all roles');
+    const sql = `Select employee_role.roles As roles, `
+}
 
 
 // shows all employees
 showEmployees = () => {
-  console.log("Showing all roles");
+  console.log("Showing all employees");
   const sql = `SELECT employee.id,
     employee.first_name,
     employee.last_name,
