@@ -41,8 +41,8 @@ const promptUser = () => {
         //   "Remove a department",
         //   "Remove a role",
         //   "Remove an employee",
-          "View department budgets",
-          "No action",
+          "View department budgets"
+        // "No action"
         ],
       },
     ])
@@ -88,9 +88,9 @@ const promptUser = () => {
       if (choices === "View department budgets") {
         viewBudget();
       }
-      if (choices === "No Action") {
-        connection.end();
-      }
+    //   if (choices === "No Action") {
+    //     connection.end();
+    //   }
     });
 };
 
@@ -103,7 +103,7 @@ showDepartments = () => {
     .promise()
     .query(sql)
     .then((rows) => {
-      console.log(rows[0]);
+      console.table(rows[0]);
       promptUser();
     })
     .catch((err) => {
@@ -121,7 +121,7 @@ showRoles = () => {
     .promise()
     .query(sql)
     .then((rows) => {
-      console.log(rows[0]);
+      console.table(rows[0]);
       promptUser();
     })
     .catch((err) => {
@@ -148,7 +148,7 @@ showEmployees = () => {
     .promise()
     .query(sql)
     .then((rows) => {
-      console.log(rows[0]);
+      console.table(rows[0]);
       promptUser();
     })
     .catch((err) => {
@@ -218,7 +218,7 @@ const addRole = () => {
         .promise()
         .query(roleSql)
         .then((data) => {
-          console.log(data[0]);
+          console.table(data[0]);
           inquirer
             .prompt([
               {
@@ -292,12 +292,12 @@ const addEmployee = () => {
         .promise()
         .query(roleSql)
         .then((data) => {
-          console.log(data);
+          console.table(data);
 
           inquirer
             .prompt([
               {
-                type: "list",
+                type: "input",
                 name: "role",
                 message: "Enter the employee's role.",
                 choices: data[0],
@@ -313,7 +313,7 @@ const addEmployee = () => {
                 .promise()
                 .query(managerSql)
                 .then((data) => {
-                  console.log(data);
+                  console.table(data);
 
                   inquirer
                     .prompt([
@@ -671,7 +671,7 @@ viewBudget = () => {
     .promise()
     .query(sql)
     .then((rows) => {
-      console.log(rows[0]);
+      console.table(rows[0]);
       promptUser();
     })
     .catch((err) => {
